@@ -55,11 +55,11 @@ void loop() {
   sensors_event_t accel, gyro, temp;
   mpu.getEvent(&accel, &gyro, &temp);
 
-  // Read raw roll and pitch
+  // read raw roll and pitch
   float roll  = accel.acceleration.x / 9.81f;
   float pitch = accel.acceleration.y / 9.81f;
 
-  // Apply low pass filter
+  // apply low pass filter
   rollFiltered  = alpha * roll  + (1 - alpha) * rollFiltered;
   pitchFiltered = alpha * pitch + (1 - alpha) * pitchFiltered;
 
