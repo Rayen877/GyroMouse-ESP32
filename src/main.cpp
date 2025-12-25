@@ -51,6 +51,7 @@ void moveMouseFromAngles(float pitch, float roll) {
   if (abs(pitch) > DEADZONE) {
     dy = (pitch > 0) ? -(pitch - DEADZONE) * SENSITIVITY : -(pitch + DEADZONE) * SENSITIVITY;
   }
+  // IIR low pass filter bch tzid t7assen lmovement
   dxFiltered = MOUSE_SMOOTH * dx + (1.0f - MOUSE_SMOOTH) * dxFiltered;
   dyFiltered = MOUSE_SMOOTH * dy + (1.0f - MOUSE_SMOOTH) * dyFiltered;
   
